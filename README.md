@@ -1,8 +1,56 @@
 # OpenClaw Autopilot Skill
 
+一个让 Codex/OpenClaw 更适合长期自动工作的 skill。它的目标是减少“一句话动一下”的体验：先确认目标和完成标准，然后持续执行安全的下一步，定期整理上下文，遇到真正阻塞或高风险操作时再回来问用户。
+
+`open-claw-autopilot` 适合 Windows 上的 OpenClaw/Codex 使用，尤其适合调试、安装配置、浏览器操作、文件修改、跑测试、修 bug、实现功能、长期排查问题等多步骤任务。
+
 `open-claw-autopilot` is a Codex/OpenClaw skill for long-running autonomous work. It helps an agent move beyond "one user message, one action" by establishing a clear goal, continuously executing safe next steps, managing context, avoiding stalls, and reporting results with evidence.
 
 This skill is especially useful when using OpenClaw or Codex on Windows for tasks such as debugging, project setup, UI navigation, browser work, file editing, test runs, and implementation work that should continue until completion instead of stopping after every small step.
+
+## Quick Start
+
+1. Copy the whole `open-claw-autopilot` folder into your skills directory.
+2. Restart OpenClaw/Codex or reload skills.
+3. Start a task with:
+
+```text
+使用 open-claw-autopilot，一直工作直到完成。开始前先确认目标、完成标准和不能碰的范围。
+```
+
+Windows skill path:
+
+```text
+%USERPROFILE%\.codex\skills\open-claw-autopilot\
+```
+
+macOS/Linux skill path:
+
+```text
+~/.codex/skills/open-claw-autopilot/
+```
+
+## Who This Is For
+
+Use this skill if you want an AI agent to:
+
+- Keep working across many steps instead of waiting after every action.
+- Ask fewer routine questions while still respecting safety boundaries.
+- Clarify what "done" means before starting.
+- Keep a compact checkpoint for long tasks.
+- Recover after context loss, restart, or handoff.
+- Avoid repeating the same failed action over and over.
+- Report final results with evidence, not just confidence.
+
+## Core Idea
+
+The skill gives the agent a practical operating contract:
+
+- **Goal contract**: confirm the goal, completion criteria, verification method, scope boundaries, and stop conditions.
+- **Autopilot loop**: act, observe, update the plan, check for stalls, keep going.
+- **Context checkpoint**: maintain `OPENCLAW_CONTEXT.md` for long work.
+- **Safety boundaries**: local reversible actions are okay; destructive, external, paid, credential, deployment, push, or publish actions require user confirmation.
+- **Evidence discipline**: completion must be verified with tests, logs, screenshots, command output, UI state, or other observable proof.
 
 ## What It Does
 
