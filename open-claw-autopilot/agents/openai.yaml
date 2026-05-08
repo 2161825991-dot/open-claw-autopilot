@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenClaw Autopilot"
+  short_description: "Keep OpenClaw working autonomously through multi-step tasks."
+  default_prompt: "Use this skill when you want OpenClaw to keep working continuously on a task until it is complete, only asking for help when truly blocked."
