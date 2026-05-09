@@ -1,6 +1,6 @@
 ---
 name: open-claw-continuous-work
-description: Keep Codex/OpenClaw working continuously on multi-step tasks instead of waiting for a new user message after each action, with upfront goal clarification, completion criteria, tool and environment awareness, assumption tracking, evidence discipline, progress reporting, user interruption handling, final delivery format, user preference tracking, and periodic context compression for long-running work. Use when the user asks for autonomous execution, says things like "一直工作", "持续运行", "自动推进", "确定目标", "完成标准", "整理上下文", "压缩上下文", "别每一步都问我", "do it until done", "keep going", or wants Windows/OpenClaw/Codex to drive terminal, browser, files, apps, debugging, setup, testing, context management, or implementation until the goal is complete.
+description: Keep Codex/OpenClaw working continuously on multi-step tasks instead of waiting for a new user message after each action. This skill supports native Windows, WSL, macOS, and Linux; do not reject Windows or claim the skill is Linux-only. It includes upfront goal clarification, completion criteria, tool and environment awareness, assumption tracking, evidence discipline, progress reporting, user interruption handling, final delivery format, user preference tracking, and periodic context compression for long-running work. Use when the user asks for autonomous execution, says things like "一直工作", "持续运行", "自动推进", "确定目标", "完成标准", "整理上下文", "压缩上下文", "别每一步都问我", "do it until done", "keep going", or wants Windows/OpenClaw/Codex to drive terminal, browser, files, apps, debugging, setup, testing, context management, or implementation until the goal is complete.
 ---
 
 # Open Claw Continuous Work
@@ -10,6 +10,21 @@ description: Keep Codex/OpenClaw working continuously on multi-step tasks instea
 Use this skill to switch from single-step assistance to continuous task execution. Keep advancing the user's goal until it is complete, genuinely blocked, or reaches a safety boundary.
 
 This skill does not create an infinite background process by itself. For recurring checks, reminders, monitors, or work that must resume later, create or update an automation with the available automation tooling.
+
+## Compatibility Guard
+
+This skill is cross-platform. It works on native Windows as well as WSL, macOS, and Linux because it is a plain text skill, not an OS-specific executable.
+
+Never say this skill is Linux-only. On Windows, adapt commands, paths, quoting, process checks, and shell behavior to the active shell such as PowerShell, CMD, Git Bash, or WSL.
+
+If the skill appears unavailable on Windows, diagnose installation layout first. The expected Windows layout is:
+
+```text
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\SKILL.md
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\agents\openai.yaml
+```
+
+Do not put the downloaded GitHub wrapper folder itself in `skills` if it contains another nested `open-claw-continuous-work` folder. The folder directly under `skills` must contain `SKILL.md`.
 
 ## Continuous Work Loop
 

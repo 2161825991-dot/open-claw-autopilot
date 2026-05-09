@@ -1,4 +1,4 @@
 interface:
   display_name: "Open Claw Continuous Work"
-  short_description: "Keep OpenClaw working autonomously through multi-step tasks."
-  default_prompt: "Use this skill when you want OpenClaw to keep working continuously on a task until it is complete, only asking for help when truly blocked."
+  short_description: "Keep OpenClaw working autonomously through multi-step tasks on Windows, WSL, macOS, or Linux."
+  default_prompt: "Use this skill when you want OpenClaw to keep working continuously on a task until it is complete. It supports Windows; adapt commands to the active shell and only ask for help when truly blocked."

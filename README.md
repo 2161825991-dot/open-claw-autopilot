@@ -12,6 +12,8 @@ This skill is especially useful when using OpenClaw or Codex on Windows for task
 
 Yes, this skill can be used on Windows. It is a plain Codex/OpenClaw skill made of text files, so it does not depend on macOS-specific binaries or scripts.
 
+It supports native Windows, WSL, macOS, and Linux. If an AI assistant says this skill is "Linux-only", that is a mistaken interpretation. The skill should adapt its commands to PowerShell, CMD, Git Bash, WSL, macOS, or Linux depending on the active environment.
+
 Windows users only need to copy the whole `open-claw-continuous-work` folder into the local skills directory:
 
 ```text
@@ -32,6 +34,35 @@ Then restart OpenClaw/Codex or reload skills. To use it, call the skill at the b
 ```
 
 Note: this is not a background daemon or a system-level always-on switch. It is a task mode. Mention `open-claw-continuous-work` whenever you want the agent to work autonomously for that task.
+
+### Common Windows Installation Mistake
+
+If you download the repository as a zip from GitHub, the extracted folder may look like this:
+
+```text
+open-claw-continuous-work-main\
+  README.md
+  open-claw-continuous-work\
+    SKILL.md
+    agents\
+      openai.yaml
+```
+
+Do not put `open-claw-continuous-work-main` directly into your skills directory. Put the inner `open-claw-continuous-work` folder there.
+
+Correct:
+
+```text
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\SKILL.md
+```
+
+Wrong:
+
+```text
+%USERPROFILE%\.codex\skills\open-claw-continuous-work-main\open-claw-continuous-work\SKILL.md
+```
+
+After fixing the folder layout, restart OpenClaw/Codex or reload skills.
 
 ## Quick Start
 
