@@ -1,10 +1,10 @@
-# OpenClaw Autopilot Skill
+# Open Claw Continuous Work Skill
 
 一个让 Codex/OpenClaw 更适合长期自动工作的 skill。它的目标是减少“一句话动一下”的体验：先确认目标和完成标准，然后持续执行安全的下一步，定期整理上下文，遇到真正阻塞或高风险操作时再回来问用户。
 
-`open-claw-autopilot` 适合 Windows 上的 OpenClaw/Codex 使用，尤其适合调试、安装配置、浏览器操作、文件修改、跑测试、修 bug、实现功能、长期排查问题等多步骤任务。
+`open-claw-continuous-work` 适合 Windows 上的 OpenClaw/Codex 使用，尤其适合调试、安装配置、浏览器操作、文件修改、跑测试、修 bug、实现功能、长期排查问题等多步骤任务。
 
-`open-claw-autopilot` is a Codex/OpenClaw skill for long-running autonomous work. It helps an agent move beyond "one user message, one action" by establishing a clear goal, continuously executing safe next steps, managing context, avoiding stalls, and reporting results with evidence.
+`open-claw-continuous-work` is a Codex/OpenClaw skill for long-running autonomous work. It helps an agent move beyond "one user message, one action" by establishing a clear goal, continuously executing safe next steps, managing context, avoiding stalls, and reporting results with evidence.
 
 This skill is especially useful when using OpenClaw or Codex on Windows for tasks such as debugging, project setup, UI navigation, browser work, file editing, test runs, and implementation work that should continue until completion instead of stopping after every small step.
 
@@ -12,47 +12,47 @@ This skill is especially useful when using OpenClaw or Codex on Windows for task
 
 Yes, this skill can be used on Windows. It is a plain Codex/OpenClaw skill made of text files, so it does not depend on macOS-specific binaries or scripts.
 
-Windows users only need to copy the whole `open-claw-autopilot` folder into the local skills directory:
+Windows users only need to copy the whole `open-claw-continuous-work` folder into the local skills directory:
 
 ```text
-%USERPROFILE%\.codex\skills\open-claw-autopilot\
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\
 ```
 
 The folder should contain:
 
 ```text
-%USERPROFILE%\.codex\skills\open-claw-autopilot\SKILL.md
-%USERPROFILE%\.codex\skills\open-claw-autopilot\agents\openai.yaml
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\SKILL.md
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\agents\openai.yaml
 ```
 
 Then restart OpenClaw/Codex or reload skills. To use it, call the skill at the beginning of the task:
 
 ```text
-使用 open-claw-autopilot，一直工作直到完成。开始前先确认目标、完成标准和不能碰的范围。
+使用 open-claw-continuous-work，一直工作直到完成。开始前先确认目标、完成标准和不能碰的范围。
 ```
 
-Note: this is not a background daemon or a system-level always-on switch. It is a task mode. Mention `open-claw-autopilot` whenever you want the agent to work autonomously for that task.
+Note: this is not a background daemon or a system-level always-on switch. It is a task mode. Mention `open-claw-continuous-work` whenever you want the agent to work autonomously for that task.
 
 ## Quick Start
 
-1. Copy the whole `open-claw-autopilot` folder into your skills directory.
+1. Copy the whole `open-claw-continuous-work` folder into your skills directory.
 2. Restart OpenClaw/Codex or reload skills.
 3. Start a task with:
 
 ```text
-使用 open-claw-autopilot，一直工作直到完成。开始前先确认目标、完成标准和不能碰的范围。
+使用 open-claw-continuous-work，一直工作直到完成。开始前先确认目标、完成标准和不能碰的范围。
 ```
 
 Windows skill path:
 
 ```text
-%USERPROFILE%\.codex\skills\open-claw-autopilot\
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\
 ```
 
 macOS/Linux skill path:
 
 ```text
-~/.codex/skills/open-claw-autopilot/
+~/.codex/skills/open-claw-continuous-work/
 ```
 
 ## Who This Is For
@@ -72,7 +72,7 @@ Use this skill if you want an AI agent to:
 The skill gives the agent a practical operating contract:
 
 - **Goal contract**: confirm the goal, completion criteria, verification method, scope boundaries, and stop conditions.
-- **Autopilot loop**: act, observe, update the plan, check for stalls, keep going.
+- **Continuous Work loop**: act, observe, update the plan, check for stalls, keep going.
 - **Context checkpoint**: maintain `OPENCLAW_CONTEXT.md` for long work.
 - **Safety boundaries**: local reversible actions are okay; destructive, external, paid, credential, deployment, push, or publish actions require user confirmation.
 - **Evidence discipline**: completion must be verified with tests, logs, screenshots, command output, UI state, or other observable proof.
@@ -108,20 +108,20 @@ This skill turns those tasks into a continuous loop:
 
 ## Installation
 
-Copy the entire `open-claw-autopilot` folder into your Codex/OpenClaw skills directory.
+Copy the entire `open-claw-continuous-work` folder into your Codex/OpenClaw skills directory.
 
 On Windows, the final layout should look like this:
 
 ```text
-%USERPROFILE%\.codex\skills\open-claw-autopilot\SKILL.md
-%USERPROFILE%\.codex\skills\open-claw-autopilot\agents\openai.yaml
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\SKILL.md
+%USERPROFILE%\.codex\skills\open-claw-continuous-work\agents\openai.yaml
 ```
 
 On macOS or Linux, the layout is usually:
 
 ```text
-~/.codex/skills/open-claw-autopilot/SKILL.md
-~/.codex/skills/open-claw-autopilot/agents/openai.yaml
+~/.codex/skills/open-claw-continuous-work/SKILL.md
+~/.codex/skills/open-claw-continuous-work/agents/openai.yaml
 ```
 
 After copying the folder, restart OpenClaw/Codex or reload skills so the new skill is discovered.
@@ -131,19 +131,19 @@ After copying the folder, restart OpenClaw/Codex or reload skills so the new ski
 Call the skill at the start of a task where you want autonomous progress:
 
 ```text
-使用 open-claw-autopilot，帮我完成这个任务。你要一直自动推进，直到完成或真的遇到阻塞，不要每一步都等我确认。
+使用 open-claw-continuous-work，帮我完成这个任务。你要一直自动推进，直到完成或真的遇到阻塞，不要每一步都等我确认。
 ```
 
 Short version:
 
 ```text
-用 open-claw-autopilot，一直做直到完成。
+用 open-claw-continuous-work，一直做直到完成。
 ```
 
 If your client supports `$SkillName` syntax:
 
 ```text
-使用 $open-claw-autopilot，一直工作直到完成。
+使用 $open-claw-continuous-work，一直工作直到完成。
 ```
 
 ## Recommended Prompt Pattern
@@ -151,7 +151,7 @@ If your client supports `$SkillName` syntax:
 For best results, give the agent a clear goal contract:
 
 ```text
-使用 open-claw-autopilot。
+使用 open-claw-continuous-work。
 
 目标：修复登录按钮点击后没有反应的问题。
 完成标准：
@@ -219,7 +219,7 @@ The skill includes Windows-specific guidance:
 ## Included Files
 
 ```text
-open-claw-autopilot/
+open-claw-continuous-work/
 ├── SKILL.md
 └── agents/
     └── openai.yaml

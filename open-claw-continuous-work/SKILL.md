@@ -1,9 +1,9 @@
 ---
-name: open-claw-autopilot
+name: open-claw-continuous-work
 description: Keep Codex/OpenClaw working continuously on multi-step tasks instead of waiting for a new user message after each action, with upfront goal clarification, completion criteria, tool and environment awareness, assumption tracking, evidence discipline, progress reporting, user interruption handling, final delivery format, user preference tracking, and periodic context compression for long-running work. Use when the user asks for autonomous execution, says things like "一直工作", "持续运行", "自动推进", "确定目标", "完成标准", "整理上下文", "压缩上下文", "别每一步都问我", "do it until done", "keep going", or wants Windows/OpenClaw/Codex to drive terminal, browser, files, apps, debugging, setup, testing, context management, or implementation until the goal is complete.
 ---
 
-# OpenClaw Autopilot
+# Open Claw Continuous Work
 
 ## Purpose
 
@@ -11,7 +11,7 @@ Use this skill to switch from single-step assistance to continuous task executio
 
 This skill does not create an infinite background process by itself. For recurring checks, reminders, monitors, or work that must resume later, create or update an automation with the available automation tooling.
 
-## Autopilot Loop
+## Continuous Work Loop
 
 1. Establish the goal contract.
 2. Check available tools, environment, and active constraints.
