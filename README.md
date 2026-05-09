@@ -8,6 +8,31 @@
 
 This skill is especially useful when using OpenClaw or Codex on Windows for tasks such as debugging, project setup, UI navigation, browser work, file editing, test runs, and implementation work that should continue until completion instead of stopping after every small step.
 
+## Windows Compatibility
+
+Yes, this skill can be used on Windows. It is a plain Codex/OpenClaw skill made of text files, so it does not depend on macOS-specific binaries or scripts.
+
+Windows users only need to copy the whole `open-claw-autopilot` folder into the local skills directory:
+
+```text
+%USERPROFILE%\.codex\skills\open-claw-autopilot\
+```
+
+The folder should contain:
+
+```text
+%USERPROFILE%\.codex\skills\open-claw-autopilot\SKILL.md
+%USERPROFILE%\.codex\skills\open-claw-autopilot\agents\openai.yaml
+```
+
+Then restart OpenClaw/Codex or reload skills. To use it, call the skill at the beginning of the task:
+
+```text
+使用 open-claw-autopilot，一直工作直到完成。开始前先确认目标、完成标准和不能碰的范围。
+```
+
+Note: this is not a background daemon or a system-level always-on switch. It is a task mode. Mention `open-claw-autopilot` whenever you want the agent to work autonomously for that task.
+
 ## Quick Start
 
 1. Copy the whole `open-claw-autopilot` folder into your skills directory.
